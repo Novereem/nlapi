@@ -19,7 +19,7 @@ namespace NieuweLaptopApi
 {
     public class Startup
     {
-        private readonly string nlConnString = Environment.GetEnvironmentVariable("conn_string_nl");
+        private readonly string nlConnString = "Server=localhost; Uid=root; Database=nl; Pwd=root;"; //Environment.GetEnvironmentVariable("conn_string_nl");
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,9 +31,9 @@ namespace NieuweLaptopApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            /*services.AddDbContext<NlContext>(options => 
+            services.AddDbContext<NlContext>(options => 
                 options.UseMySql(nlConnString, 
-                    ServerVersion.AutoDetect(nlConnString))); */
+                    ServerVersion.AutoDetect(nlConnString))); 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "nl.Api", Version = "v1"});
@@ -60,11 +60,11 @@ namespace NieuweLaptopApi
                 app.UseHsts();
             }
 
-            /*using (IServiceScope scope = app.ApplicationServices.CreateScope())
+            using (IServiceScope scope = app.ApplicationServices.CreateScope())
             using (var context = scope.ServiceProvider.GetService<NlContext>())
             {
                 context.Database.EnsureCreated();
-            }*/
+            }
             
             app.UseCors(x => x
                 .AllowAnyMethod()
