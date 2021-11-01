@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NieuweLaptopApi", "NieuweLaptopApi\NieuweLaptopApi.csproj", "{FFDAABC5-E11B-4B2D-9030-EBB371836FD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nl.Api", "nl.Api\nl.Api.csproj", "{FFDAABC5-E11B-4B2D-9030-EBB371836FD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nl.Data", "nl.Data\nl.Data.csproj", "{6FA5A1BB-81DC-450E-B43A-484D5F2D2246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nl.Logic", "nl.Logic\nl.Logic.csproj", "{D0E23454-7684-45DA-AAFC-8FE260D6937E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nl.Common", "nl.Common\nl.Common.csproj", "{2CBA51B7-0580-4ADF-B3E4-0FAD6803BCC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,17 @@ Global
 		{FFDAABC5-E11B-4B2D-9030-EBB371836FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFDAABC5-E11B-4B2D-9030-EBB371836FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFDAABC5-E11B-4B2D-9030-EBB371836FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA5A1BB-81DC-450E-B43A-484D5F2D2246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA5A1BB-81DC-450E-B43A-484D5F2D2246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA5A1BB-81DC-450E-B43A-484D5F2D2246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA5A1BB-81DC-450E-B43A-484D5F2D2246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E23454-7684-45DA-AAFC-8FE260D6937E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E23454-7684-45DA-AAFC-8FE260D6937E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E23454-7684-45DA-AAFC-8FE260D6937E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E23454-7684-45DA-AAFC-8FE260D6937E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CBA51B7-0580-4ADF-B3E4-0FAD6803BCC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBA51B7-0580-4ADF-B3E4-0FAD6803BCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CBA51B7-0580-4ADF-B3E4-0FAD6803BCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBA51B7-0580-4ADF-B3E4-0FAD6803BCC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
