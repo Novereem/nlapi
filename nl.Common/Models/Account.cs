@@ -12,6 +12,14 @@ namespace nl.Commen.Models
         public string Password { get; set; }
         public string Email { get; set; }
         
-        public List<WishList> Posts { get; set; }
+        public List<WishList> Saved { get; set; }
+
+        public Account(string email, string username, string password)
+        {
+            Email = email;
+            Username = username;
+            Password = password;
+            Saved = new List<WishList>();
+        }
     }
 }

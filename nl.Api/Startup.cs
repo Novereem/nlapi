@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using nl.Commen.Interfaces;
 using nl.Data;
 
 namespace NieuweLaptopApi
@@ -31,7 +32,7 @@ namespace NieuweLaptopApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<NlContext>(options => 
+            services.AddDbContext<INlContext,NlContext>(options => 
                 options.UseMySql(nlConnString, 
                     ServerVersion.AutoDetect(nlConnString))); 
             services.AddSwaggerGen(c =>
@@ -61,7 +62,7 @@ namespace NieuweLaptopApi
             }
 
             using (IServiceScope scope = app.ApplicationServices.CreateScope())
-            using (var context = scope.ServiceProvider.GetService<NlContext>())
+            using (var context = scope.ServiceProvider.GetService<INlContext>())
             {
                 context.Database.EnsureCreated();
             }
