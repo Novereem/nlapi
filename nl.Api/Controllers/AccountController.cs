@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using nl.Commen.Interfaces;
-using nl.Commen.Models;
 using nl.Commen.Models.ApiModels;
 using nl.Data;
 using nl.Logic;
@@ -18,8 +17,9 @@ namespace NieuweLaptopApi.Controllers
 
         public AccountController(INlContext nlContext)
         {
-            _accountService = new AccountService(new AccountData(nlContext));
+            _accountService = new AccountService(new AccountData(nlContext), new nl.Logic.AuthenticationService());
         }
+        
         [HttpPost("/account/register")]
         public void Register(ApiAccount account)
         {
@@ -27,9 +27,16 @@ namespace NieuweLaptopApi.Controllers
         }
         
         [HttpPost("/account/login")]
-        public ApiAccount Login(ApiAccount account)
+        public string Login(ApiAccount account)
         {
-            return account;
+            string hurb = _accountService.Login(account);
+            return hurb;
+        }
+        
+        [HttpGet("/account/info/{token}")]
+        public string GetAccountInfo(string token)
+        {
+            return _accountService.GetAccountInfo(token);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using nl.Commen.Interfaces;
+﻿using System.Linq;
+using nl.Commen.Interfaces;
 using nl.Commen.Models;
 
 namespace nl.Data
@@ -15,6 +16,11 @@ namespace nl.Data
         {
             _nlContext.Accounts.Add(account);
             _nlContext.SaveChanges();
+        }
+
+        public Account GetAccount(string username)
+        {
+            return _nlContext.Accounts.FirstOrDefault(u => u.Username == username);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace NieuweLaptopApi
             });
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowCors", builder => builder.WithOrigins("localhost:3000"));
+                options.AddPolicy("AllowCORS", builder => builder.WithOrigins("localhost:3000"));
             });
             
         }
@@ -51,7 +51,6 @@ namespace NieuweLaptopApi
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "nl.Api v1"));
