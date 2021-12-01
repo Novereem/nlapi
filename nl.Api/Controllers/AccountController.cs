@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using nl.Commen.Interfaces;
 using nl.Commen.Models.ApiModels;
+using nl.Commen.Models.FrontEndModels;
 using nl.Data;
 using nl.Logic;
 
@@ -34,7 +35,7 @@ namespace NieuweLaptopApi.Controllers
         }
         
         [HttpGet("/account/info/{token}")]
-        public string GetAccountInfo(string token)
+        public ViewAccount GetAccountInfo(string token)
         {
             return _accountService.GetAccountInfo(token);
         }
