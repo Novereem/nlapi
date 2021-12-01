@@ -2,6 +2,7 @@
 using nl.Commen.Interfaces;
 using nl.Commen.Models;
 using nl.Commen.Models.ApiModels;
+using nl.Commen.Models.FrontEndModels;
 
 namespace nl.Logic
 {
@@ -37,9 +38,9 @@ namespace nl.Logic
             return _authenticationService.GenerateToken(account.Username, account.Email);
         }
 
-        public string GetAccountInfo(string token)
+        public ViewAccount GetAccountInfo(string token)
         {
-            return _authenticationService.GetUsername(token);
+            return _authenticationService.GetAccountInformation(token);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Security.Claims;
 using AuthenticationService.Managers;
 using AuthenticationService.Models;
 using nl.Commen.Models;
+using nl.Commen.Models.FrontEndModels;
 
 namespace nl.Logic
 {
@@ -38,15 +39,19 @@ namespace nl.Logic
             };
         }
 
-        public string GetUsername(string token)
+        public ViewAccount GetAccountInformation(string token)
         {
             string sk = "TW9zaGVFcmV6UHJpdmF0ZUtleQ==";//Environment.GetEnvironmentVariable("SecretKeyNl");
             IAuthService authService = new JWTService(sk);
             List<Claim> claims = authService.GetTokenClaims(token).ToList();
 
-            return claims.FirstOrDefault(e => e.Type.Equals(ClaimTypes.Name))?.Value;
-            //Console.WriteLine(claims.FirstOrDefault(e => e.Type.Equals(ClaimTypes.Name))?.Value);
-            //Console.WriteLine(claims.FirstOrDefault(e => e.Type.Equals(ClaimTypes.Email))?.Value);
+            ViewAccount viewAccount = new ViewAccount
+            {
+                Username = claims.FirstOrDefault(e => e.Type.Equals(ClaimTypes.Name))?.Value,
+                Email = claims.FirstOrDefault(e => e.Type.Equals(ClaimTypes.Email))?.Value
+            };
+
+            return viewAccount;
         }
     }
 }
