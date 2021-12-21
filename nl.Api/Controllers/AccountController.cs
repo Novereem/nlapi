@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using nl.Commen.Interfaces;
 using nl.Commen.Models.ApiModels;
@@ -33,6 +34,8 @@ namespace NieuweLaptopApi.Controllers
             string hurb = _accountService.Login(account);
             return hurb;
         }
+        
+        
         
         [HttpGet("/account/info/{token}")]
         public ViewAccount GetAccountInfo(string token)

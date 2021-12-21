@@ -4,7 +4,7 @@ namespace nl.Commen.Interfaces
 {
     public interface IAccountData
     {
-        void Register(Account account);
+        bool Register(Account account);
         Account GetAccount(string username);
     }
 }

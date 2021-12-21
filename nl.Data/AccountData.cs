@@ -12,10 +12,16 @@ namespace nl.Data
             _nlContext = nlContext;
         }
         
-        public void Register(Account account)
+        public bool Register(Account account)
         {
-            _nlContext.Accounts.Add(account);
-            _nlContext.SaveChanges();
+            if (account.Email != null || account.Password != null || account.Username != null)
+            {
+                _nlContext.Accounts.Add(account);
+                _nlContext.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public Account GetAccount(string username)
