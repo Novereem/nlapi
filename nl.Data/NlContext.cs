@@ -8,6 +8,7 @@ namespace nl.Data
     {
         
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Chat> Chats { get; set; }
         
         public NlContext(DbContextOptions<NlContext> options)
             : base(options)

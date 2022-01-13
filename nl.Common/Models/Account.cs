@@ -11,9 +11,7 @@ namespace nl.Commen.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        // public Tutorial Tutorial { get; set; }
-        // Tutorial = List<Answer> + Id
-        // Answer = text + id
+        
         public List<WishList> Saved { get; set; }
 
         public Account(string email, string username, string password)

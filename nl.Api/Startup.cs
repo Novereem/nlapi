@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NieuweLaptopApi.Hubs;
 using nl.Commen.Interfaces;
 using nl.Data;
 
@@ -42,8 +43,16 @@ namespace NieuweLaptopApi
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowCORS", builder => builder.WithOrigins("localhost:3000"));
+                options.AddPolicy("ClientPermission", policy =>
+                {
+                    policy.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins("http://localhost:3000")
+                        .AllowCredentials();
+                });
             });
-            
+            services.AddSignalR();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,7 +80,9 @@ namespace NieuweLaptopApi
                 .AllowAnyHeader()
                 .SetIsOriginAllowed(origin => true)
                 .AllowCredentials());
-
+            
+            app.UseCors("ClientPermission");
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -85,6 +96,8 @@ namespace NieuweLaptopApi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                
+                endpoints.MapHub<ChatHub>("/hubs/chat");
             });
 
             app.Run(async (context) => {

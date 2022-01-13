@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2cf34f44_002Dea8e_002D4a17_002D87e7_002Dfa81416e6d29/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="EncryptionAndDecryption_True" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AccountTests.EncryptionAndDecryption_True&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AccountTests.Register_FullAccount&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AccountTests.Register_PartialAccountFalse&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AccountTests.GetAccount_KnownUsername&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AccountTests.GetAccount_UnknownUsername&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.IntergrationTests.AccountServiceTests.RegisterAccount_True&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.IntergrationTests.AccountServiceTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

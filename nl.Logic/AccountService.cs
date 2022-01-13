@@ -29,9 +29,13 @@ namespace nl.Logic
         public string Login(ApiAccount apiAccount)
         {
             Account account = _accountData.GetAccount(apiAccount.Username);
+            if (account == null)
+            {
+                return "/403";
+            }
             if (account.Password != EncryptString(apiAccount.Password) || account.Username != apiAccount.Username)
             {
-                return "wrong password or username";
+                return "/403";
             }
             return _authenticationService.GenerateToken(account.Username, account.Email);
         }

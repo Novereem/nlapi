@@ -35,8 +35,6 @@ namespace NieuweLaptopApi.Controllers
             return hurb;
         }
         
-        
-        
         [HttpGet("/account/info/{token}")]
         public ViewAccount GetAccountInfo(string token)
         {
