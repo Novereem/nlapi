@@ -35,7 +35,7 @@ jobs:
         uses: security-code-scan/security-code-scan-add-action@main
         
       - name: test
-        run:
+        run: |
           nuget restore
           msbuild
   
