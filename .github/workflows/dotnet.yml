@@ -28,7 +28,7 @@ jobs:
     needs: buildandtest
     steps:
       - uses: actions/checkout@v2
-      - uses: nuget/stup-nuget@v1.0.5
+      - uses: nuget/setup-nuget@v1.0.5
       - uses: microsoft/setup-msbuild@v1.0.2
       
       - name: Project Setup
