@@ -21,8 +21,12 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
+    - name: Unit and integration test
       run: dotnet test --no-build --verbosity normal
+    - name: Peformance test
+      uses: k6io/action@v0.1
+      with: 
+        filename: CIPerformanceTest.js
   codescan:
     runs-on: windows-latest
     needs: buildandtest
@@ -41,9 +45,8 @@ jobs:
   
 
   publish:
-    
     runs-on: ubuntu-latest
-    needs: buildandtest
+    needs: codescan
     
     steps:
     - name: Login to Docker Hub
