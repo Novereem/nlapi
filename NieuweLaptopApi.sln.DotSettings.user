@@ -8,5 +8,10 @@
     &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AccountTests.GetAccount_UnknownUsername&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.IntergrationTests.AccountServiceTests.RegisterAccount_True&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.IntergrationTests.AccountServiceTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AuthenticationService.Test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.AuthenticationService.TestGenerateToken_False&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.JWTServiceTests.TestIsTokenValid_True&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.JWTServiceTests.TestIsTokenValid_InvalidToken_True&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4C904896-5D5C-4E8A-8E82-3DEF4FD4F8A7::net5.0::nl.Tests.Unit_Tests.JWTServiceTests.TestIsTokenValid_InvalidToken_False&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

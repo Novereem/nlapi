@@ -89,4 +89,3 @@ namespace AuthenticationService.Managers
     }
 }
 
-//https://medium.com/@mmoshikoo/jwt-authentication-using-c-54e0c71f21b0

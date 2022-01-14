@@ -14,8 +14,4 @@
       <ProjectReference Include="..\nl.Logic\nl.Logic.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="PeformanceTests" />
-    </ItemGroup>
-
 </Project>

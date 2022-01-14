@@ -18,11 +18,11 @@ namespace nl.Logic
             _accountData = accountData;
             _authenticationService = authenticationService;
         }
-        
+
+
         public bool Register(ApiAccount apiAccount)
         {
             Account account = new Account(apiAccount.Email,apiAccount.Username,EncryptString(apiAccount.Password));
-            //account.Password = Hashed()
             return _accountData.Register(account);
         }
 
@@ -30,10 +30,6 @@ namespace nl.Logic
         {
             Account account = _accountData.GetAccount(apiAccount.Username);
             if (account == null)
-            {
-                return "/403";
-            }
-            if (account.Password != EncryptString(apiAccount.Password) || account.Username != apiAccount.Username)
             {
                 return "/403";
             }
@@ -62,7 +58,8 @@ namespace nl.Logic
                 {
                     ICryptoTransform transform = tripDes.CreateEncryptor();
                     byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
-                    return Convert.ToBase64String(results, 0, results.Length);
+                    string newText = Convert.ToBase64String(results, 0, results.Length);
+                    return newText;
                 }
             }
         }

@@ -1,43 +1,100 @@
-﻿using nl.Commen.Models;
-using nl.Commen.Models.ApiModels;
+﻿using nl.Commen.Models.ApiModels;
 using nl.Logic;
 using nl.Tests.FakeData;
 using NUnit.Framework;
+using AuthenticationService = nl.Logic.AuthenticationService;
 
 namespace nl.Tests.IntergrationTests
 {
-    public class AccountServiceTests : FakeAccountData
+    public class AccountServiceTests
     {
-        /*
-        private readonly AccountService _accountService = new(new FakeAccountData(), new Logic.AuthenticationService());
-        private Account account;
-        
+        private readonly AccountService _accountService;
+        private readonly Logic.AuthenticationService _authentication;
+
         public AccountServiceTests()
         {
-            ApiAccount apiAccount = new()
-            {
-                Email = "a@a.nl",
-                Username = "User",
-                Password = "Password"
-            };
-            _accountService.Register(apiAccount);
-            account = _accountService.GetAccountByUsername(apiAccount);
+            Logic.AuthenticationService authentication = new Logic.AuthenticationService();
+            _accountService = new AccountService(new FakeAccountData(), authentication);
         }
 
         [Test]
-        public void RegisterAccount_True()
+        public void TestRegister_True()
         {
-            ApiAccount apiAccount = new()
+            ApiAccount apiAccount = new ApiAccount()
             {
-                Email = account.Email,
-                Password = account.Password,
-                Username = account.Username
+                Email = "a@a.nl",
+                Password = "a",
+                Username = "aUser"
             };
-            
-            _accountService.Register(apiAccount);
-            Assert.IsTrue(_accountService.Register(apiAccount));
-            
+
+            Assert.True(_accountService.Register(apiAccount));
         }
-        */
+        
+        [Test]
+        public void TestRegister_NoUsername_False()
+        {
+            ApiAccount apiAccount = new ApiAccount()
+            {
+                Email = "a@a.nl",
+                Password = "a"
+            };
+
+            Assert.False(_accountService.Register(apiAccount));
+        }
+
+        [Test]
+        public void TestLogin_True()
+        {
+            ApiAccount apiAccount = new ApiAccount()
+            {
+                Email = "a@a.nl",
+                Password = "a",
+                Username = "aUser"
+            };
+
+            string account = _accountService.Login(apiAccount);
+            
+            Assert.True(account.Length > 6);
+        }
+        
+        [Test]
+        public void TestLogin_NullAccount_True()
+        {
+            ApiAccount apiAccount = new ApiAccount();
+
+            string account = _accountService.Login(apiAccount);
+            
+            Assert.True(account == "/403");
+        }
+
+        [Test]
+        public void TestGetAccountInfo_True()
+        {
+            ApiAccount apiAccount = new ApiAccount()
+            {
+                Email = "a@a.nl",
+                Password = "a",
+                Username = "aUser"
+            };
+
+            string account = _accountService.Login(apiAccount);
+
+            Assert.True(_accountService.GetAccountInfo(account).Username == apiAccount.Username);
+        }
+        
+        [Test]
+        public void TestGetAccountInfo_OtherUsername_False()
+        {
+            ApiAccount apiAccount = new ApiAccount()
+            {
+                Email = "a@a.nl",
+                Password = "a",
+                Username = "aUser"
+            };
+
+            string account = _accountService.Login(apiAccount);
+
+            Assert.False(_accountService.GetAccountInfo(account).Username == "b");
+        }
     }
 }

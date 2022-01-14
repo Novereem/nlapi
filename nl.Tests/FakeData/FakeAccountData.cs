@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using nl.Commen.Interfaces;
 using nl.Commen.Models;
 
@@ -6,43 +7,23 @@ namespace nl.Tests.FakeData
 {
     public class FakeAccountData : IAccountData
     {
-        private List<Account> Accounts;
-
-        public FakeAccountData()
-        {
-            Accounts = new List<Account>();
-        }
-        
         public bool Register(Account account)
         {
-            Accounts.Add(account);
-            return true;
-        }
-
-        /*
-        public bool Register(Account account)
-        {
-            if (account.Email != null && account.Password != null && account.Username != null)
+            if (account.Username == "aUser" && account.Email == "a@a.nl" && account.Password != "a")
             {
                 return true;
             }
 
             return false;
         }
-        */
 
         public Account GetAccount(string username)
         {
-            if (username == "username")
+            if (username == "aUser")
             {
-                return new Account("email", "username", "password");
+                return new Account("a@a.nl", "aUser", "a");
             }
 
-            if (username == "username2")
-            {
-                return new Account("email", "username2", "password");
-            }
-            
             return null;
         }
     }
